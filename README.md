@@ -47,12 +47,6 @@ O motor analisa a frequência de falhas de autenticação vindas de um mesmo IP 
 
 ---
 
-1️⃣ Inicializando o Backend (Servidor Central)
-
-1. Navegue até a pasta do backend:
-   ```bash
-   cd backend
-
 ### 1️⃣ Inicializando o Backend (Servidor Central)
 
 1. Navegue até a pasta do backend:
