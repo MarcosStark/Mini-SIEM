@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Tools - Mini SIEM Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo-area">
+                <h1>🔍 Security Tools <span class="badge-version">SIEM v1.0</span></h1>
+                <p>Monitoramento de Infraestrutura e Correlação de Eventos de Segurança</p>
+            </div>
+            <div class="status-area">
+                <button id="btn-clear" class="btn-secondary">Limpar Alertas</button>
+                <div class="indicator-live">LIVE</div>
+            </div>
+        </header>
+
+        <section class="metrics-grid">
+            <div class="card-metric metric-low">
+                <h3>Severidade Baixa</h3>
+                <p id="count-low">0</p>
+            </div>
+            <div class="card-metric metric-medium">
+                <h3>Severidade Média</h3>
+                <p id="count-medium">0</p>
+            </div>
+            <div class="card-metric metric-critical">
+                <h3>Severidade Crítica</h3>
+                <p id="count-critical">0</p>
+            </div>
+        </section>
+
+        <main class="alerts-section">
+            <h2>🚨 Incidentes Detectados em Tempo Real</h2>
+            <div class="table-wrapper">
+                <table id="table-alerts">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Timestamp</th>
+                            <th>Tipo de Evento</th>
+                            <th>IP Origem</th>
+                            <th>Usuário Alvo</th>
+                            <th>Severidade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alerts-tbody">
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

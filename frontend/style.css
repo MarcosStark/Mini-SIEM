@@ -1,0 +1,173 @@
+/* Declaração de variáveis globais de estilização (:root) para centralização do tema */
+:root {
+    --bg-primary: #0f172a;       /* Cor de fundo principal do ecossistema (Slate 900) */
+    --bg-secondary: #1e293b;     /* Cor de fundo de elementos internos e cards (Slate 800) */
+    --bg-surface: #020617;       /* Cor de fundo de tabelas e superfícies escuras (Slate 950) */
+    --text-main: #f8fafc;        /* Cor do texto principal de alta legibilidade (Slate 50) */
+    --text-muted: #94a3b8;       /* Cor de textos informativos ou secundários (Slate 400) */
+    --border-color: #334155;     /* Cor padrão para bordas e divisores de seção (Slate 700) */
+    --color-low: #10b981;        /* Identificador verde para eventos de nível Baixo */
+    --color-medium: #f59e0b;     /* Identificador laranja para eventos de nível Médio */
+    --color-critical: #ef4444;   /* Identificador vermelho para eventos de nível Crítico */
+}
+
+/* Reset estrutural básico para padronização entre diferentes navegadores */
+* {
+    margin: 0;                   /* Remove margens padrão de todos os elementos */
+    padding: 0;                   /* Remove preenchimentos internos de todos os elementos */
+    box-sizing: border-box;       /* Altera o cálculo de tamanho de caixas para incluir bordas */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define fonte padrão do SOC */
+}
+
+/* Configurações básicas aplicadas à tag body */
+body {
+    background-color: var(--bg-primary); /* Injeta a cor escura de fundo do tema */
+    color: var(--text-main);              /* Injeta a cor clara de texto do tema */
+    padding: 2rem;                       /* Espaçamento interno periférico nas bordas da página */
+}
+
+/* Container de contenção e alinhamento central do painel */
+.dashboard-container {
+    max-width: 1400px;           /* Define a largura máxima permitida para o painel */
+    margin: 0 auto;              /* Centraliza horizontalmente o elemento na tela do monitor */
+}
+
+/* Alinhamento dos elementos presentes no cabeçalho */
+.dashboard-header {
+    display: flex;               /* Ativa o modo de posicionamento Flexbox */
+    justify-content: space-between; /* Afasta os blocos de texto e botões para as extremidades */
+    align-items: center;         /* Alinha os elementos verticalmente ao centro */
+    padding-bottom: 2rem;        /* Adiciona espaçamento inferior antes da linha divisória */
+    border-bottom: 1px solid var(--border-color); /* Adiciona a linha divisória do cabeçalho */
+}
+
+/* Estilização da tag que exibe a versão do sistema */
+.badge-version {
+    font-size: 0.85rem;          /* Reduz o tamanho da fonte do indicador */
+    background-color: #3b82f6;   /* Aplica cor azul institucional ao fundo do elemento */
+    padding: 0.2rem 0.5rem;      /* Espaçamento interno para criar o formato de pílula/badge */
+    border-radius: 4px;          /* Arredonda os cantos do elemento */
+    vertical-align: middle;      /* Alinha o elemento horizontalmente com o texto do título */
+}
+
+/* Alinhamento dos indicadores de status no canto superior direito */
+.status-area {
+    display: flex;               /* Ativa posicionamento Flexbox */
+    align-items: center;         /* Alinha verticalmente os botões e indicadores */
+    gap: 1.5rem;                 /* Define uma distância padrão de separação entre os itens */
+}
+
+/* Estilização e efeito do indicador pulsante 'LIVE' */
+.indicator-live {
+    background-color: rgba(239, 68, 68, 0.2); /* Aplica fundo vermelho translúcido */
+    color: var(--color-critical);             /* Define a fonte na cor vermelha sólida */
+    padding: 0.4rem 0.8rem;                  /* Espaçamento interno do elemento */
+    border-radius: 4px;                       /* Arredondamento periférico */
+    font-weight: bold;                        /* Altera a fonte para negrito */
+    border: 1px solid var(--color-critical);   /* Insere borda fina vermelha sólida */
+    animation: pulse 2s infinite;             /* Vincula a animação CSS chamada 'pulse' em loop */
+}
+
+/* Estruturação da malha de cards métricos superiores */
+.metrics-grid {
+    display: grid;               /* Ativa o modo de posicionamento em Grid */
+    grid-template-columns: repeat(3, 1fr); /* Divide o espaço igualmente em 3 colunas paralelas */
+    gap: 1.5rem;                 /* Define espaçamento interno entre os cards */
+    margin: 2rem 0;              /* Adiciona espaçamento acima e abaixo da seção de cards */
+}
+
+/* Regras gerais aplicadas a todos os cards métricos */
+.card-metric {
+    background-color: var(--bg-secondary); /* Aplica fundo cinza intermediário */
+    padding: 1.5rem;                       /* Espaçamento interno do card */
+    border-radius: 8px;                    /* Arredondamento dos cantos do card */
+    border-left: 6px solid var(--text-muted); /* Cria borda lateral padrão que será alterada */
+}
+
+/* Formatação do título interno dos cards */
+.card-metric h3 {
+    font-size: 0.9rem;           /* Reduz a fonte do cabeçalho do card */
+    color: var(--text-muted);    /* Aplica tom opaco e cinzento à fonte */
+    text-transform: uppercase;   /* Força a exibição de todas as letras em maiúsculo */
+}
+
+/* Formatação do indicador numérico central dos cards */
+.card-metric p {
+    font-size: 2.5rem;           /* Define tamanho expandido para destaque da métrica */
+    font-weight: bold;            /* Altera o peso da fonte para negrito */
+    margin-top: 0.5rem;          /* Espaçamento entre o título do card e o número */
+}
+
+/* Customização de cor de borda de acordo com o nível do card */
+.metric-low { border-left-color: var(--color-low); }           /* Verde para o card Baixo */
+.metric-medium { border-left-color: var(--color-medium); }     /* Laranja para o card Médio */
+.metric-critical { border-left-color: var(--color-critical); } /* Vermelho para o card Crítico */
+
+/* Estruturação do painel de listagem de incidentes */
+.alerts-section {
+    background-color: var(--bg-secondary); /* Fundo cinza intermediário */
+    padding: 1.5rem;                       /* Espaçamento interno */
+    border-radius: 8px;                    /* Arredondamento periférico */
+    border: 1px solid var(--border-color); /* Aplica borda sutil de contorno */
+}
+
+/* Ajustes no título da área de listagem */
+.alerts-section h2 {
+    font-size: 1.2rem;           /* Tamanho de fonte intermediário */
+    margin-bottom: 1rem;         /* Espaçamento antes do início físico da tabela */
+}
+
+/* Configuração geral da estrutura da tabela de logs */
+table {
+    width: 100%;                 /* Força a tabela a ocupar toda a largura disponível */
+    border-collapse: collapse;   /* Mescla as bordas das células adjacentes em uma única linha */
+    text-align: left;            /* Alinha os textos das colunas para a esquerda */
+}
+
+/* Configuração geral de preenchimento de células e cabeçalhos */
+th, td {
+    padding: 1rem;               /* Espaçamento interno confortável para leitura de logs */
+    border-bottom: 1px solid var(--border-color); /* Linha fina divisória entre eventos */
+}
+
+/* Estilização exclusiva para a linha de cabeçalho da tabela */
+th {
+    background-color: var(--bg-surface); /* Injeta cor de fundo escura de contraste */
+    color: var(--text-muted);            /* Injeta cor cinza opaca no texto */
+    font-size: 0.85rem;                  /* Reduz levemente a fonte das colunas */
+    text-transform: uppercase;           /* Força a exibição de cabeçalhos em maiúsculo */
+}
+
+/* Efeito visual ao passar o ponteiro do mouse sobre uma linha de incidente */
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02); /* Aplica um destaque levemente claro */
+}
+
+/* Classes utilitárias injetadas pelo JavaScript para colorização textual dos níveis */
+.sev-low { color: var(--color-low); font-weight: bold; }           /* Texto em verde */
+.sev-medium { color: var(--color-medium); font-weight: bold; }     /* Texto em laranja */
+.sev-critical { color: var(--color-critical); font-weight: bold; } /* Texto em vermelho */
+
+/* Estilização do botão secundário de gerenciamento */
+.btn-secondary {
+    background-color: transparent; /* Remove cor sólida de fundo */
+    color: var(--text-muted);      /* Define fonte cinza opaca */
+    border: 1px solid var(--border-color); /* Desenha borda sutil de contorno */
+    padding: 0.5rem 1rem;          /* Espaçamento interno do botão */
+    border-radius: 4px;            /* Arredonda os cantos */
+    cursor: pointer;               /* Altera o comportamento do cursor para 'mãozinha' */
+    transition: all 0.2s ease;     /* Transição suave para efeitos de hover */
+}
+
+/* Alteração visual ao passar o mouse sobre o botão */
+.btn-secondary:hover {
+    background-color: var(--border-color); /* Injeta fundo cinza escuro */
+    color: var(--text-main);              /* Força o texto para cor branca sólida */
+}
+
+/* Definição matemática do ciclo de animação pulsar (Fade In/Out) */
+@keyframes pulse {
+    0% { opacity: 1; }           /* Estado inicial: 100% visível */
+    50% { opacity: 0.5; }        /* Meio do ciclo: 50% translúcido */
+    100% { opacity: 1; }         /* Estado final: Retorna a ser 100% visível */
+}
