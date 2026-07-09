@@ -53,37 +53,37 @@ O motor analisa a frequência de falhas de autenticação vindas de um mesmo IP 
    ```bash
    cd backend
 
-   
-Instale as dependências:
+### 1️⃣ Inicializando o Backend (Servidor Central)
 
-\\\
-Bash
-pip install -r requirements.txt
-Inicie o servidor escutando em todas as interfaces da rede:
+1. Navegue até a pasta do backend:
+   ```bash
+   cd backend
+   ```
 
-\\\
-Bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-2️⃣ Abrindo o Painel Web (SOC Dashboard)
-Navegue até a pasta frontend/.
+3. Inicie o servidor escutando em todas as interfaces da rede:
+   ```bash
+   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+   ```
 
-Abra o arquivo index.html no navegador de sua preferência.
+---
 
-3️⃣ Executando o Agente no Computador Monitorado (Linux)
-Copie o arquivo agent_forwarder.py para a máquina Linux.
+### 2️⃣ Abrindo o Painel Web (SOC Dashboard)
 
-Ajuste a variável SIEM_API_URL dentro do script com o IP do seu Servidor Central.
+1. Navegue até a pasta `frontend/`.
+2. Abra o arquivo `index.html` em qualquer navegador web.
 
-Execute o agente com privilégios administrativos (necessário para ler /var/log/auth.log):
+---
 
-\\\
-Bash
-sudo python3 agent_forwarder.py
-🧪 Simulação de Ataque (Testes Locais via cURL)
-Caso queira simular eventos diretamente sem a máquina Linux, você pode disparar chamadas HTTP manuais para o backend:
+### 3️⃣ Executando o Agente no Computador Monitorado (Linux)
 
-Ataque de Força Bruta (Crítico - Simulação de disparo único):
-
-Bash
-curl -X POST "[http://127.0.0.1:8000/api/v1/ingest](http://127.0.0.1:8000/api/v1/ingest)" -H "Cont
+1. Copie o arquivo `agent_forwarder.py` para a máquina Linux.
+2. Verifique o IP do seu Servidor Central e ajuste a variável `SIEM_API_URL` dentro do script.
+3. Execute o agente com privilégios administrativos:
+   ```bash
+   sudo python3 agent_forwarder.py
+   ```
