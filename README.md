@@ -47,7 +47,7 @@ O motor analisa a frequência de falhas de autenticação vindas de um mesmo IP 
 
 ---
 
-### 1️⃣ Inicializando o Backend (Servidor Central)
+1️⃣ Inicializando o Backend (Servidor Central)
 
 1. Navegue até a pasta do backend:
    ```bash
@@ -56,12 +56,15 @@ O motor analisa a frequência de falhas de autenticação vindas de um mesmo IP 
    
 Instale as dependências:
 
+\\\
 Bash
 pip install -r requirements.txt
 Inicie o servidor escutando em todas as interfaces da rede:
 
+\\\
 Bash
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
 2️⃣ Abrindo o Painel Web (SOC Dashboard)
 Navegue até a pasta frontend/.
 
@@ -74,6 +77,7 @@ Ajuste a variável SIEM_API_URL dentro do script com o IP do seu Servidor Centra
 
 Execute o agente com privilégios administrativos (necessário para ler /var/log/auth.log):
 
+\\\
 Bash
 sudo python3 agent_forwarder.py
 🧪 Simulação de Ataque (Testes Locais via cURL)
